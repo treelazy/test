@@ -41,18 +41,5 @@
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-react": "^7.12.4",
     "jest": "23.6.0"
-  },
-  "jest": {
-    "setupFiles": [
-      "<rootDir>/config/polyfills.js",
-      "<rootDir>/config/setupTests.js"
-    ],
-    "snapshotSerializers": ["enzyme-to-json/serializer"],
-                  "moduleFileExtensions": ["js","jsx" ],
-    "testURL": "http://localhost",
-    "transform": {"^.+\\.(js|jsx)$": "babel-jest",
-      "^.+\\.css$": "jest-css",
-      "^(?!.*\\.(js|jsx|css|json)$)": "jest-file"
-      }
-    }
+  }
 }
