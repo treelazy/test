@@ -1,4 +1,5 @@
 import React from 'react';
+import './style.scss';
 
 const TodoList = ({ todos, clickDel }) => (
   <ul>
@@ -10,6 +11,7 @@ const TodoList = ({ todos, clickDel }) => (
           onClick={() => {
             clickDel(ind);
           }}
+          className="button"
         >
           delete
         </button>

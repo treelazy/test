@@ -1,5 +1,6 @@
 const initState = {
   todos: [],
+  data: [],
 };
 const toDoReducer = (state = initState, action) => {
   const newtodos = [...state.todos];
@@ -14,6 +15,14 @@ const toDoReducer = (state = initState, action) => {
       return {
         ...state,
         todos: newtodos,
+      };
+    case 'FETCH_USER':
+      return state;
+    case 'FETCH_USER_FULFILLED':
+      console.log(action.payload);
+      return {
+        ...state,
+        data: [action.payload],
       };
     default:
       return state;
