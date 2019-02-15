@@ -4,6 +4,7 @@ import {
   mergeMap, catchError, tap, map,
 } from 'rxjs/operators';
 import { from } from 'rxjs';
+import { ajax } from 'rxjs/ajax';
 
 const fetchUserFulfilled = payload => ({
   type: 'FETCH_USER_FULFILLED',
@@ -18,7 +19,7 @@ export const actions = {
 const fetchUserEpic = action$ => action$.pipe(
   ofType('FETCH_USER'),
   tap(r => console.log(r)),
-  mergeMap(() => from(axios.get('https://hidden-lowlands-59931.herokuapp.com/games')).pipe(
+  mergeMap(() => ajax.getJSON('https://hidden-lowlands-59931.herokuapp.com/games').pipe(
     tap(response => console.log(response.data)),
     map(response => actions.fetchUserFulfilled(response.data)),
     catchError(error => console.log(error)),

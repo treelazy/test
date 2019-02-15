@@ -2,20 +2,20 @@ import configureMockStore from 'redux-mock-store';
 import {
   createEpicMiddleware,
   // combineEpics,
-  ActionsObservable,
+  // ActionsObservable,
 } from 'redux-observable';
-import httpAdapter from 'axios/lib/adapters/http';
-import axios from 'axios';
+// import httpAdapter from 'axios/lib/adapters/http';
+// import axios from 'axios';
 import nock from 'nock';
 import { of } from 'rxjs';
 
-import { Observable } from 'rxjs';
+// import { Observable } from 'rxjs';
 import { actions, Epics } from './index';
 
-const host = 'http://localhost';
+// const host = 'http://localhost';
 
-axios.defaults.host = host;
-axios.defaults.adapter = httpAdapter;
+// axios.defaults.host = host;
+// axios.defaults.adapter = httpAdapter;
 
 // const rootEpic = combineEpics(...Object.values(Epics));
 
@@ -37,6 +37,7 @@ describe('Epics test', () => {
     const payload = res.data;
 
     nock('https://hidden-lowlands-59931.herokuapp.com')
+      .defaultReplyHeaders({ 'access-control-allow-origin': '*' })
       .get('/games')
       .reply(200, res);
     // console.log(actions.fetchUser());
@@ -49,6 +50,6 @@ describe('Epics test', () => {
     const result = await epic$.toPromise();
     // const result = await epic$.toArray().toPromise();
     console.log(result, actions.fetchUserFulfilled(res));
-    expect(result).toEqual(actions.fetchUserFulfilled(res));
+    expect(result).toEqual(actions.fetchUserFulfilled(res.data));
   });
 });
