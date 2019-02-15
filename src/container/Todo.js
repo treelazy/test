@@ -7,9 +7,9 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  clickHandler: (text) => {
-    dispatch(actions.addTodo(text));
-  },
+  // clickHandler: (text) => {
+  //   dispatch(actions.addTodo(text));
+  // },
   getData: () => {
     dispatch(actions.fetchUser());
   },

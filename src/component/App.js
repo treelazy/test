@@ -2,12 +2,12 @@ import React from 'react';
 // import { Switch, Route } from 'react-router';
 // import AddTodoComponent from './AddTodo';
 import AddTodo from '../container/Todo';
-import TodoList from '../container/TodoList';
+// import TodoList from '../container/TodoList';
 
 const App = () => (
   <div>
     <AddTodo />
-    <TodoList />
+    {/* <TodoList /> */}
   </div>
 );
 
